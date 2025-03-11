@@ -32,6 +32,9 @@ class Area:
             self.metadata.update(best_match.metadata)
             self.metadata[assign] = best_match.name
 
+    def assignCentroid(self):
+        self.metadata["CENTROID"] = self.polygon.centroid.coords[0]
+
 class MultiAreas:
     def __init__(self, areas: list):
         if not all(isinstance(area, Area) for area in areas):
